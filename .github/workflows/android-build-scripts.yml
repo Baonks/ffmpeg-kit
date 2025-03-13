@@ -58,12 +58,10 @@ jobs:
         if: ${{ failure() }}
         run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
       - name: upload APK artifact
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v3.0.0
+        uses: actions/upload-artifact@v2.3.1
         with:
-          name: apk-linux-main
-          # Ubah path di bawah ini sesuai lokasi output APK Anda
-          path: ./path/to/apk/**/*.apk
+            name: apk-linux-main
+            path: ./path/to/apk/**/*.apk
 
   build-lts-on-linux:
     name: android lts on linux
