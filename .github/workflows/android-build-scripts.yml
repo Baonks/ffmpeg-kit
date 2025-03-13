@@ -211,7 +211,7 @@ jobs:
         run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
       - name: upload APK artifact
         if: ${{ always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: apk-linux-no-ffmpeg-kit
           # Ubah path di bawah ini sesuai lokasi output APK Anda
