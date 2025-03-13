@@ -57,6 +57,14 @@ jobs:
       - name: print ffbuild logs
         if: ${{ failure() }}
         run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
+      - name: upload APK artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: apk-linux-main
+          # Ubah path di bawah ini sesuai lokasi output APK Anda
+          path: ./path/to/apk/**/*.apk
+
   build-lts-on-linux:
     name: android lts on linux
     runs-on: ubuntu-22.04
@@ -88,6 +96,14 @@ jobs:
       - name: print ffbuild logs
         if: ${{ failure() }}
         run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
+      - name: upload APK artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: apk-linux-lts
+          # Ubah path di bawah ini sesuai lokasi output APK Anda
+          path: ./path/to/apk/**/*.apk
+
   build-main-on-macos:
     name: android main on macos
     runs-on: macos-12
@@ -117,6 +133,14 @@ jobs:
       - name: print ffbuild logs
         if: ${{ failure() }}
         run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
+      - name: upload APK artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: apk-macos-main
+          # Ubah path di bawah ini sesuai lokasi output APK Anda
+          path: ./path/to/apk/**/*.apk
+
   build-lts-on-macos:
     name: android lts on macos
     runs-on: macos-12
@@ -146,6 +170,14 @@ jobs:
       - name: print ffbuild logs
         if: ${{ failure() }}
         run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
+      - name: upload APK artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: apk-macos-lts
+          # Ubah path di bawah ini sesuai lokasi output APK Anda
+          path: ./path/to/apk/**/*.apk
+
   build-main-without-ffmpeg-kit-protocols-on-linux:
     name: build without ffmpeg-kit protocols
     runs-on: ubuntu-22.04
@@ -177,3 +209,10 @@ jobs:
       - name: print ffbuild logs
         if: ${{ failure() }}
         run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
+      - name: upload APK artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: apk-linux-no-ffmpeg-kit
+          # Ubah path di bawah ini sesuai lokasi output APK Anda
+          path: ./path/to/apk/**/*.apk
