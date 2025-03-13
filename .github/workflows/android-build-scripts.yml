@@ -172,7 +172,7 @@ jobs:
         run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
       - name: upload APK artifact
         if: ${{ always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.0.0
         with:
           name: apk-macos-lts
           # Ubah path di bawah ini sesuai lokasi output APK Anda
